@@ -20,15 +20,21 @@ pip install numpy==1.23.5 tensorflow-cpu==2.10 tensorflow-directml-plugin
 ## Project Structure : 
 
 cifar100_mobilenetv2/
+
 ├─ data/                # local cache (ignored by git) — created at first run
+
 ├─ models/              # saved models (ignored by git)
+
 ├─ data_loader.py       # download/cache CIFAR-100 once (npz) and load arrays
+
 ├─ train.py             # build model, train, evaluate, save
 
 ## Dataset (Not Included) :
 
 The dataset is not versioned.
+
 On first run, data_loader.py downloads CIFAR-100 via Keras and caches it as ./data/cifar100.npz.
+
 Subsequent runs reuse this local file (no re-download).
 
 ## How to Run : 
@@ -40,22 +46,31 @@ python train.py
 What the script does:
 
 Creates ./data/cifar100.npz if missing.
+
 Resizes images to 224×224 and applies preprocess_input (MobileNetV2, [-1,1]).
+
 Trains only the head (backbone frozen) for a few epochs.
+
 Evaluates on:
+
 a 1,000-image test subset (challenge target metric)
+
 the full 10,000-image test set (informational)
+
 Saves the model to ./models/mobilenetv2_cifar100.h5.
 
 
 ## Troubleshooting :
 
 Push rejected (>100 MB): ensure data/ and models/ are ignored (see .gitignore).
+
 Import errors: confirm numpy==1.23.5 and tensorflow-cpu==2.10.
+
 GPU not used: install tensorflow-directml-plugin and run on Windows with a compatible GPU; otherwise training will run on CPU.
 
 
 ## Acknowledgments :
 
 TensorFlow/Keras MobileNetV2 pretrained on ImageNet
+
 CIFAR-100 dataset (Krizhevsky & Hinton)
