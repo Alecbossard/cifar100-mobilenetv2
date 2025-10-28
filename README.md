@@ -31,46 +31,34 @@ cifar100_mobilenetv2/
 
 ## Dataset (Not Included) :
 
-The dataset is not versioned.
-
-On first run, data_loader.py downloads CIFAR-100 via Keras and caches it as ./data/cifar100.npz.
-
-Subsequent runs reuse this local file (no re-download).
+- The dataset is not versioned.
+- On first run, data_loader.py downloads CIFAR-100 via Keras and caches it as ./data/cifar100.npz.
+- Subsequent runs reuse this local file (no re-download).
 
 ## How to Run : 
 
 From the project root:
-
+```bash
 python train.py
-
+```
 What the script does:
-
-Creates ./data/cifar100.npz if missing.
-
-Resizes images to 224×224 and applies preprocess_input (MobileNetV2, [-1,1]).
-
-Trains only the head (backbone frozen) for a few epochs.
-
-Evaluates on:
-
-a 1,000-image test subset (challenge target metric)
-
-the full 10,000-image test set (informational)
-
-Saves the model to ./models/mobilenetv2_cifar100.h5.
+1. Creates ./data/cifar100.npz if missing.
+2. Resizes images to 224×224 and applies preprocess_input (MobileNetV2, [-1,1]).
+3. Trains only the head (backbone frozen) for a few epochs.
+4. Evaluates on:
+  - a 1,000-image test subset (challenge target metric)
+  - the full 10,000-image test set (informational)
+5. Saves the model to ./models/mobilenetv2_cifar100.h5.
 
 
 ## Troubleshooting :
 
-Push rejected (>100 MB): ensure data/ and models/ are ignored (see .gitignore).
-
-Import errors: confirm numpy==1.23.5 and tensorflow-cpu==2.10.
-
-GPU not used: install tensorflow-directml-plugin and run on Windows with a compatible GPU; otherwise training will run on CPU.
+-Push rejected (>100 MB): ensure data/ and models/ are ignored (see .gitignore).
+-Import errors: confirm numpy==1.23.5 and tensorflow-cpu==2.10.
+-GPU not used: install tensorflow-directml-plugin and run on Windows with a compatible GPU; otherwise training will run on CPU.
 
 
 ## Acknowledgments :
 
-TensorFlow/Keras MobileNetV2 pretrained on ImageNet
-
-CIFAR-100 dataset (Krizhevsky & Hinton)
+-TensorFlow/Keras MobileNetV2 pretrained on ImageNet
+-CIFAR-100 dataset (Krizhevsky & Hinton)
