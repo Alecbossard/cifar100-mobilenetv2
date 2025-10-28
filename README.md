@@ -53,7 +53,7 @@ What the script does:
 
 ## Troubleshooting :
 
-- Push rejected (>100 MB): ensure data/ and models/ are ignored (see .gitignore).
+- Push rejected (>100 MB): ensure data/ and models/ are ignored .
 - Import errors: confirm numpy==1.23.5 and tensorflow-cpu==2.10.
 - GPU not used: install tensorflow-directml-plugin and run on Windows with a compatible GPU; otherwise training will run on CPU.
 
@@ -61,4 +61,4 @@ What the script does:
 ## Acknowledgments :
 
 - TensorFlow/Keras MobileNetV2 pretrained on ImageNet
-- CIFAR-100 dataset (Krizhevsky & Hinton)
+- CIFAR-100 dataset 
