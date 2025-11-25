@@ -1,5 +1,2 @@
-numpy==1.23.5
-
-tensorflow-cpu==2.10
-
-tensorflow-directml-plugin
+numpy
+tensorflow>=2.10
